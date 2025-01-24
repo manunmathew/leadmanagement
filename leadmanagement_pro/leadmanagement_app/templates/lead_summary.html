@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary</title>
+</head>
+<body>
+    <h1>Lead Summary</h1>
+
+    <h2>Total Leads: {{ total_leads }}</h2>
+
+    <h3>Summary by Status</h3>
+    <table>
+        <tr>
+            <th>Status</th>
+            <th>Count</th>
+        </tr>
+        {% for status in status_summary %}
+        <tr>
+            <td>{{ status.status }}</td>
+            <td>{{ status.count }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'lead_list' %}">Lead List</a>
+</body>
+</html>
