@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead List</title>
+</head>
+
+<body>
+    <h1>Leads</h1>
+    <a href="{% url 'lead_add' %}">Add New Lead</a>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Status</th>
+            <th>Source</th>
+            <th>Actions</th>
+        </tr>
+        {% for lead in leads %}
+        <tr>
+            <td>{{ lead.name }}</td>
+            <td>{{ lead.email }}</td>
+            <td>{{ lead.phone_number }}</td>
+            <td>{{ lead.status }}</td>
+            <td>{{ lead.source }}</td>
+            <td>
+                <a href="{% url 'lead_update' lead.id %}">Update</a>
+                <a href="{% url 'lead_delete' lead.id %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+
+</html>
